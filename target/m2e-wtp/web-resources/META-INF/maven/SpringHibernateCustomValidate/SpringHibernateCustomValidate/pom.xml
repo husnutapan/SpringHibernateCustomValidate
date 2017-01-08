@@ -30,6 +30,13 @@
 		<org.springframework-version>4.2.1.RELEASE</org.springframework-version>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 		<!-- Form Validation using Annotations -->
 		<dependency>
 			<groupId>javax.validation</groupId>

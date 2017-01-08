@@ -5,6 +5,14 @@ public class Employee {
 	private String name;
 	private int salary;
 	
+	private String role;
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public int getId() {
 		return id;
 	}

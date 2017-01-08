@@ -14,7 +14,7 @@ import javax.validation.Payload;
 @Target({ ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PhoneNumber {
-	String message() default "{PhoneMessage}";
+	String message() default "Invalid format, valid formats are 1234567890, 123-456-7890 x1234";
 
 	Class<?>[] groups() default {};
 

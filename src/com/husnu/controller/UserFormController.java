@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,7 @@ import com.husnu.model.UserForm;
 
 @Controller
 public class UserFormController {
+	private static final Logger logger = LoggerFactory.getLogger(UserFormController.class);
 
 	private Map<String, UserForm> userList = null;
 
@@ -24,6 +27,10 @@ public class UserFormController {
 
 	@RequestMapping(value = "/user/save", method = RequestMethod.GET)
 	public String saveCustomerPage(Model model) {
+
+		String requestUser = "Husnu TAPAN";
+
+		logger.info("info logging by {}", requestUser);
 		model.addAttribute("userForm", new UserForm());
 		return "userSave";
 	}

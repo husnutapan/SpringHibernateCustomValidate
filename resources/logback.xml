@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="consoleWriter" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} -
+				%msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="fileWriter"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>d:/springHibernateValidate.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+				%msg%n</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>c:/springHibernateValidate.%i.log.zip
+			</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>10</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>2MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+
+
+	<logger name="org.springframework" level="debug" additivity="false">
+		<appender-ref ref="consoleWriter" />
+	</logger>
+
+	<logger name="com.husnu" level="debug" additivity="false">
+		<appender-ref ref="consoleWriter" />
+		<appender-ref ref="fileWriter"></appender-ref>
+	</logger>
+
+	<root level="debug">
+		<appender-ref ref="consoleWriter" />
+		<appender-ref ref="fileWriter" />
+	</root>
+
+	<logger name="com.husnu" level="INFO" additivity="false">
+		<appender-ref ref="consoleWriter"></appender-ref>
+		<appender-ref ref="fileWriter"></appender-ref>
+	</logger>
+
+
+
+</configuration>

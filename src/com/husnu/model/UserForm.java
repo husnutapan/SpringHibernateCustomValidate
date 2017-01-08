@@ -12,8 +12,10 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.husnu.validator.PhoneNumber;
+
 public class UserForm {
-	
+
 	private int id;
 	@Size(min = 2, max = 15)
 	private String name;
@@ -25,7 +27,10 @@ public class UserForm {
 	@Min(18)
 	@Max(90)
 	private Integer age;
+
 	private AddressDetail addressDetail;
+
+	@NotNull
 	private Gender gender;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -33,6 +38,7 @@ public class UserForm {
 	@Past
 	private Date birthOfYear;
 
+	@PhoneNumber
 	private String phone;
 
 	public enum Gender {
